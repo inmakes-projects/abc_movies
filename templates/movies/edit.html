@@ -1,0 +1,46 @@
+{% extends 'layout/base.html' %}
+
+{% block 'title' %} Update Movie | ABC Movies {% endblock  %}
+
+{% load crispy_forms_tags %}
+
+{% block 'content' %}
+<div class="album py-5 bg-light">
+    <div class="container">
+        <h3 class="border-bottom pb-2 mb-4">Update Movie</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-6">
+                    {{ form.name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.release_year|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.rating|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.genre|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.actors|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.desc|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.poster|as_crispy_field }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Save Movie</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
